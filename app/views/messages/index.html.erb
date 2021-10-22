@@ -1,13 +1,20 @@
 <div class="max-w-2xl">
   <h1 class="text-xl font-bold my-5">Messages</h1>
 
-  <% if @messages.any? %>
+  <% if messages.any? %>
     <div class="mb-5">
-      <%= render MessageComponent.with_collection(@messages) %>
+      <%= render MessageComponent.with_collection(messages) %>
     </div>
   <% else %>
     <p class="mb-5">
       There are no messages to display
     </p>
   <% end %>
+
+  <div class="my-3">
+    <%= form_with model: @new_message do |f| %>
+      <%= f.text_field :body, placeholder: "What do you want to say?", class: "block my-2" %>
+      <%= f.submit "Post message", class: "p-2 cursor-pointer hover:bg-green-600" %>
+    <% end %>
+  </div>
 <div>
