@@ -1,4 +1,4 @@
-<div class="message-component">
-  <%= message.body %>
+<%= tag.div(class: classes) do %>
+  <%= body %>
   <%= timestamp %>
-</div>
+<% end %>

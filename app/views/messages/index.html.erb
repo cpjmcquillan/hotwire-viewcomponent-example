@@ -1,9 +1,13 @@
-<div>
-  <h1 class="text-xl font-bold">Messages</h1>
+<div class="max-w-2xl">
+  <h1 class="text-xl font-bold my-5">Messages</h1>
 
   <% if @messages.any? %>
-    <div><%= render MessageComponent.with_collection(@messages) %></div>
+    <div class="mb-5">
+      <%= render MessageComponent.with_collection(@messages) %>
+    </div>
   <% else %>
-    <p>There are no messages to display</p>
+    <p class="mb-5">
+      There are no messages to display
+    </p>
   <% end %>
 <div>

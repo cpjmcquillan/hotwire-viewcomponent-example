@@ -19,7 +19,7 @@ RSpec.describe MessageComponent, type: :component do
 
       render_inline(component)
 
-      timestamp = Time.current.strftime("posted on %Y-%m-%d at %H:%M")
+      timestamp = Time.current.strftime("%Y-%m-%d at %H:%M")
       expect(rendered_component).to have_css("div", class: %w[message-component], text: timestamp)
     end
   end
