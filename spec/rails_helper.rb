@@ -69,6 +69,10 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
 
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium, using: :headless_chrome
+  end
+
   config.include ActiveSupport::Testing::TimeHelpers
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component

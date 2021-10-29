@@ -1,17 +1,20 @@
 class MessagesController < ApplicationController
-  def index
-    @new_message = Message.new
-  end
-
   def create
-    Message.create(message_params)
+    @message = Message.create(message_params)
 
-    redirect_to messages_path
+    respond_to do |format|
+      format.html { redirect_to messages_path }
+      format.turbo_stream do
+        if @message.persisted?
+          Broadcast::Message.append(message: @message)
+        end
+      end
+    end
   end
 
   private
 
-  helper_method :messages
+  helper_method :messages, :new_message
 
   def messages
     @messages ||= Message.all
@@ -19,5 +22,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body)
+  end
+
+  def new_message
+    @new_message ||= Message.new
   end
 end

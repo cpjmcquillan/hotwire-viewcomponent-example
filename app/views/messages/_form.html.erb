@@ -1,0 +1,4 @@
+<%= form_with model: new_message, id: "new_message_form" do |f| %>
+  <%= f.text_field :body, placeholder: "What do you want to say?", class: "block my-2" %>
+  <%= f.submit "Post message", class: "p-2 cursor-pointer hover:bg-green-600" %>
+<% end %>
