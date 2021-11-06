@@ -1,6 +1,4 @@
-<% if @message.persisted? %>
-  <%= turbo_stream.replace "new_message_form", partial: "form", locals: {new_message: new_message} %>
-  <%= turbo_stream.append "messages" do %>
-    <%= render MessageComponent.new(message: @message) %>
-  <% end %>
+<%= turbo_stream.replace "new_message_form", partial: "form" %>
+<%= turbo_stream.append "messages" do %>
+  <%= render MessageComponent.new(message: @message) %>
 <% end %>

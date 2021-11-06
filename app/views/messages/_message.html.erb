@@ -1,0 +1,15 @@
+<div class="message-component flex flex-wrap justify-between items-center py-3 border-b-2 border-gray-300" id=<%= dom_id(message) %>>
+  <% if message.created_at > 1.hour.ago %>
+    <div class="mr-10 text-gray-800 text-green-600">
+      <%= message.body %>
+    </div>
+  <% else %>
+    <div class="mr-10 text-gray-800">
+      <%= message.body %>
+    </div>
+  <% end %>
+
+  <div class="text-gray-400">
+    <%= message.created_at.strftime("%Y-%m-%d at %H:%M") %>
+  </div>
+</div>
