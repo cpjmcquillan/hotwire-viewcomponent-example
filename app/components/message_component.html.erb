@@ -1,4 +1,8 @@
-<%= tag.div(class: classes, **html_attributes) do %>
-  <%= body %>
-  <%= timestamp %>
+<%= tag.div(id: dom_id(message), class: "message-component flex flex-wrap justify-between items-center py-3 border-b-2 border-gray-300") do %>
+  <%= tag.div(
+      message_body,
+      class: class_names("mr-10", "text-green-600" => recent_message?, "text-gray-800" => !recent_message?)
+    ) %>
+
+  <%= tag.time(timestamp, class: "text-gray-400") %>
 <% end %>

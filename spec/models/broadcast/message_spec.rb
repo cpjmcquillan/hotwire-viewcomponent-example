@@ -6,7 +6,7 @@ RSpec.describe Broadcast::Message, type: :model do
   describe ".append" do
     it "broadcasts the message" do
       turbo_stream_broadcast = stub_turbo_stream_broadcast
-      message = Message.create(body: "A special message")
+      message = Message.create!(body: "A special message")
       rendered_component = MessageComponent.new(message: message).render_in(view)
 
       Broadcast::Message.append(message: message)

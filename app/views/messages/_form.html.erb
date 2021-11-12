@@ -1,4 +1,5 @@
 <%= form_with url: messages_path, id: "new_message_form" do |f| %>
-  <%= f.text_field :body, placeholder: "What do you want to say?", class: "block my-2" %>
+  <%= f.label :body, "Message:", class: "mr-2" %>
+  <%= f.text_field :body, placeholder: "What do you want to say?", class: "my-2 mr-2" %>
   <%= f.submit "Post message", class: "p-2 cursor-pointer hover:bg-green-600" %>
 <% end %>
