@@ -6,7 +6,6 @@ module Broadcast
 
     def initialize(message)
       @message = message
-      @view_context = ApplicationController.new.view_context
     end
 
     def append
@@ -19,10 +18,13 @@ module Broadcast
 
     private
 
-    attr_reader :message, :view_context
+    attr_reader :message
 
     def rendered_component
-      MessageComponent.new(message: message).render_in(view_context)
+      ApplicationController.render(
+        MessageComponent.new(message: message),
+        layout: false
+      )
     end
   end
 end
