@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example Rails application that demonstrates how to use Turbo Streams
+with ViewComponent (rather than the default partials).
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+### Clone the repo
+```zh
+git@github.com:cpjmcquillan/hotwire-viewcomponent-example.git && cd hotwire-viewcomponent-example
+```
 
-* System dependencies
+### Setup
+```zh
+bin/setup
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Run tests
+```zh
+bundle exec rspec
+```
